@@ -21,12 +21,7 @@ All rights reserved.
 //Framer Types: These are used to define which framing type to use
 #define FRAMER_TYPE_BASIC            0
 
-#if defined(DSI_TYPES_WINDOWS)
-   #define EXPORT __declspec(dllexport)
-#elif defined(DSI_TYPES_MACINTOSH) || defined(DSI_TYPES_LINUX)
-   #define EXPORT __attribute__((visibility("default")))
-#endif
-
+#define EXPORT __stdcall
 
 // Application callback function pointer
 typedef BOOL (*RESPONSE_FUNC)(UCHAR ucANTChannel, UCHAR ucResponseMsgID);

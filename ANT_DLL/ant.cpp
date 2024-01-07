@@ -24,6 +24,10 @@ All rights reserved.
 #include <stdio.h>
 #include <assert.h>
 
+#include "windef.h"
+#include "winbase.h"
+#include "wine/debug.h"
+
 #include "ant.h"
 #include "version.h"
 #include "types.h"
@@ -31,9 +35,6 @@ All rights reserved.
 #include "antdefines.h"
 #include "usb_device_handle.hpp"
 #include "dsi_serial_generic.hpp"
-#if defined(DSI_TYPES_WINDOWS)
-   #include "dsi_serial_vcp.hpp"
-#endif
 #include "dsi_framer_ant.hpp"
 #include "dsi_thread.h"
 #if defined(DEBUG_FILE)
@@ -85,6 +86,8 @@ static DSI_THREAD_RETURN MessageThread(void *pvParameter_);
 static void SerialHaveMessage(ANT_MESSAGE& stMessage_, USHORT usSize_);
 static void MemoryCleanup(); //Deletes internal objects from memory
 
+WINE_DEFAULT_DEBUG_CHANNEL(ANT_DLL);
+
 extern "C" EXPORT
 BOOL ANT_Init(UCHAR ucUSBDeviceNum, ULONG ulBaudrate)
 {
@@ -115,11 +118,6 @@ BOOL ANT_InitExt(UCHAR ucUSBDeviceNum, ULONG ulBaudrate, UCHAR ucPortType_, UCHA
       case PORT_TYPE_USB:
         pclSerialObject = new DSISerialGeneric();
         break;
-#if defined(DSI_TYPES_WINDOWS)
-      case PORT_TYPE_COM:
-        pclSerialObject = new DSISerialVCP();
-        break;
-#endif
       default: //Invalid port type selection
          return(FALSE);
    }
