@@ -11,7 +11,7 @@ All rights reserved.
  **************************************************************************
  *
  * DESCRIPTION:
- *
+ *t
  * This module is an example wrapper for the ANT communications library
  * It sets up and maintains the link, and provides a simplified API to the
  * application.
@@ -78,7 +78,6 @@ static UCHAR ucAutoTransferChannel = 0xFF;
 static USHORT usNumDataPackets = 0;
 static BOOL bGoThread = FALSE;
 static DSI_THREAD_IDNUM eTheThread;
-
 
 
 // Local funcs
@@ -2166,4 +2165,10 @@ static void SerialHaveMessage(ANT_MESSAGE& stMessage_, USHORT usSize_)
    }
 
    return;
+}
+
+extern "C" EXPORT
+void ANT_LibConfigCustom() {
+   fprintf(stderr, "ERR: ANT_LibConfigCustom not implemented");
+   exit(1);
 }

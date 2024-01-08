@@ -89,8 +89,8 @@ Debug_Implicitly_Linked_Objects=gccDebug/libraries/*.o
 Release_Implicitly_Linked_Objects=gccRelease/libraries/*.o
 
 # Compiler flags...
-Debug_Compiler_Flags=-Wall -O0 -g -m32
-Release_Compiler_Flags=-Wall -O2 -m32
+Debug_Compiler_Flags=-Wall -O0 -g -fPIC
+Release_Compiler_Flags=-Wall -O2 -fPIC
 
 # ----------------------------------------------    
 # Builds all configurations for this project...

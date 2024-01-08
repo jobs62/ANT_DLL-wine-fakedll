@@ -236,7 +236,7 @@ EXPORT ULONG ANTFS_GetUsedSpace();
 EXPORT ULONG ANTFS_GetFreeSpace();
 EXPORT USHORT ANTFS_FindFileIndex(UCHAR ucFileDataType_, UCHAR ucFileSubType_, USHORT usFileNumber_);
 EXPORT UCHAR ANTFS_ReadDirectoryAbsolute(ULONG ulOffset_, UCHAR ucSize_, UCHAR* pucBuffer_);
-EXPORT UCHAR ANTFS_DirectoryReadEntry (USHORT usFileIndex_, UCHAR* ucFileDirectoryBuffer_);
+EXPORT UCHAR ANTFS_DirectoryReadEntry(USHORT usFileIndex_, UCHAR* ucFileDirectoryBuffer_);
 EXPORT ULONG ANTFS_DirectoryGetSize();
 EXPORT USHORT ANTFS_FileCreate(USHORT usFileIndex_, UCHAR ucFileDataType_, ULONG ulFileIdentifier_, UCHAR ucFileDataTypeSpecificFlags_, UCHAR ucGeneralFlags);
 EXPORT UCHAR ANTFS_FileOpen(USHORT usFileIndex_, UCHAR ucOpenFlags_);
@@ -288,6 +288,8 @@ EXPORT void ANT_Nap(ULONG ulMilliseconds_);
 // Logging
 ////////////////////////////////////////////////////////////////////////////////////////
 EXPORT BOOL ANT_SetDebugLogDirectory(char* pcDirectory);
+
+EXPORT void ANT_LibConfigCustom(void);
 
 #ifdef __cplusplus
 }
