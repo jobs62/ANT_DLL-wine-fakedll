@@ -110,7 +110,7 @@ All rights reserved.
 #if !defined(DSI_TYPES_WINDOWS)
    #if !defined(BASETYPES) && !defined(_WinToMac_h_)
       #if !defined(OBJC_BOOL_DEFINED)
-         typedef signed char           BOOL;
+         typedef int           BOOL;
       #endif
       typedef char                     BYTE;                // 1-byte int. Sign is processor/compiler-dependent.
    #endif
