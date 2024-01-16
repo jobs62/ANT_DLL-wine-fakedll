@@ -3,3 +3,4 @@ ANT_LIB/gccDebug
 *.o
 *.so
 *.a
+DEMO_DLL/demo.exe
